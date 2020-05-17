@@ -1,6 +1,11 @@
 # Angular Autocomplete
-This is a shared module for Angular that you can include just about anywhere. The challenge was to have single instance autocomplete for all pages and to be able to look into more than one field.
+This is a shared module for Angular that you can include just about anywhere. 
+The challenge was to have a single instance autocomplete for all pages and to be able to look into more than one field.
 So you can pass an object with many keys and tell the autocomplete where to look.
+You can use it as many times as you want per page for different fields.
+
+## Demo
+https://git.abyss-arts.com/angularac/
 
 ## Usage
 1. Include the Module in the Imports section of the module of the page you are going to use it.
