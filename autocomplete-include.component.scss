@@ -1,0 +1,167 @@
+.autoComplete {
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    width: 70vw;
+    max-width: 1024px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+    animation: autoCompleteIn 0.3s forwards;
+    @keyframes autoCompleteIn {
+        from {
+            transform: translate(-50%, 0);
+            visibility: hidden;
+        }
+        to {
+            transform: translate(-50%, -50%);
+            visibility: visible;
+        }
+    }
+    @media (max-width: 767px) {
+        width: 100%;
+        box-shadow: none;
+    }
+    @media (max-height: 375px) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+    }
+    .autoCompleteHeader {
+        margin: 24px 24px 0;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #ccc;
+        .autoCompleteTitle {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+    .autoCompleteInput {
+        padding: 0 24px;
+    }
+    .autoCompleteRow {
+        margin: 1px 0;
+        padding: 12px 24px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #ccc;
+        line-height: 1.4;
+        text-align: left;
+        transition: 0.2s ease-in-out;
+        &:last-child {
+            border: 0;
+        }
+        &:hover, &.active {
+            color: #007eff;
+            background-color: #efefef;
+        }
+    }
+    .closeAc {
+        float: right;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        cursor: pointer;
+        &:before, &:after {
+            content: "";
+            width: 1px;
+            height: 100%;
+            background: red;
+            display: inline-block;
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+    .scrollContainer {
+        height: 200px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    @media (max-width: 767px) {
+        position: fixed;
+        bottom: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+        .scroll-list {
+            flex: 1;
+            max-height: initial;
+        }
+        .scrollContainer {
+            height: 100%;
+        }
+    }
+}
+.overlayDimmer {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+}
+
+
+.onmeInput {
+    padding: 10px 0;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transition: 0.2s;
+    border-bottom: 1px solid #999693;
+    border-radius: 0;
+    font-size: 16px;
+    outline: 0;
+}
+.onmeInput:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.onmeInput:disabled + .onmeInputLabel {
+    color: #999;
+}
+.onmeInput:focus {
+    border-color: #ccc;
+}
+.onmeInput.block {
+    width: 100%;
+}
+.onmeInputLabel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(-2.5rem);
+    color: #999693;
+    transition: 0.2s ease-out;
+    pointer-events: none;
+    cursor: text;
+}
+.onmeInputContainer .onmeInput:focus + .onmeInputLabel, .onmeInput:not(:placeholder-shown) + .onmeInputLabel {
+    top: 3.2rem;
+    font-size: 0.9em;
+    color: #ccc;
+}
+.onmeInputContainer {
+    position: relative;
+    padding: 1.5rem 0 1rem;
+}
+.onmeInputContainer {
+    position: relative;
+}
+.onmeInputContainer .onmeInputHint {
+    position: absolute;
+    bottom: 0;
+    font-size: 13px;
+}
+.onmeInputContainer .onmeInputHint.rightHint {
+    right: 0;
+}

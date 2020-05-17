@@ -1,0 +1,18 @@
+<div id="autocomplete" class="autoComplete" *ngIf="active">
+    <div class="autoCompleteHeader">
+        <span class="closeAc" (click)="hide()"></span>
+        <div class="autoCompleteTitle">{{title || 'Search'}}</div>
+    </div>
+    <div class="autoCompleteInput">
+        <div class="onmeInputContainer">
+            <input id="autocompleteInput" class="onmeInput" placeholder=" " [(ngModel)]="acModel" (ngModelChange)="change()" name="autocomplete" autocomplete="off" />
+            <span class="onmeInputLabel">Type to search</span>
+        </div>
+    </div>
+    <div class="scrollContainer">
+        <div class="autoCompleteRow txtEllipsis" [ngClass]="{active: i == activeHover}" *ngFor="let l of list || arr; let i = index" (click)="assign(l)">
+            <strong>{{l.city}}</strong>, {{l.state ? l.state : l.country}}
+        </div>
+    </div>
+</div>
+<div class="overlayDimmer" *ngIf="active" (click)="hide()"></div>
