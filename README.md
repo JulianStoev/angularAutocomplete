@@ -1,7 +1,7 @@
 # Angular Autocomplete
 This is a shared module for Angular that you can include just about anywhere. 
 The challenge was to have a single instance autocomplete for all pages and to be able to look into more than one field.
-So you can pass an object with many keys and tell the autocomplete where to look.
+So you can pass an object with many keys and tell the autocomplete where to look. For example you may want "New York City" to appear on just "nyc" or United Kingdom to show up on "europe" or "uk" or "gb".
 You can use it as many times as you want per page for different fields.
 
 ## Demo
